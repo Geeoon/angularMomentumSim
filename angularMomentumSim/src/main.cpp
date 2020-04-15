@@ -21,6 +21,13 @@ int main() {
 
 
 
+		//For testing, delete later
+
+
+
+		//For testing, delete later
+
+
 		window.clear();
 		object.draw(window);
 		window.display();

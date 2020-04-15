@@ -31,6 +31,8 @@ public:
 
 	void draw(sf::RenderWindow &window);
 
+	void update();
+
 private:
 	double radius; //meters
 	double mass; //kg
@@ -40,5 +42,7 @@ private:
 	double inertia;
 	sf::CircleShape circle;
 	Point cOfRotation;
+	Point currentPosition;
+	sf::Time elapsedTime;
 };
 
