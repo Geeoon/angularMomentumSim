@@ -134,10 +134,12 @@
     <ClCompile Include="src\classes\Point.cpp" />
     <ClCompile Include="src\classes\Satellite.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\classes\UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\classes\Point.h" />
     <ClInclude Include="src\classes\Satellite.h" />
+    <ClInclude Include="src\classes\UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
