@@ -1,11 +1,10 @@
 #include "Satellite.h"
 
-Satellite::Satellite(double ma, double mo, double aV, double r) {
+Satellite::Satellite(double ma, double aV, double r) {
 	mass = ma;
-	momentum = mo;
 	angularVelocity = aV;
 	radius = r;
-	circle.setRadius(mass * 0.5);
+	circle.setRadius(sqrt(mass));
 	
 }
 

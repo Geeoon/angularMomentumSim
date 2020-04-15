@@ -4,7 +4,7 @@
 class Satellite
 {
 public:
-	Satellite(double ma, double mo, double aV, double r);
+	Satellite(double ma, double aV, double r);
 
 	~Satellite();
 
@@ -31,7 +31,7 @@ public:
 	void draw(sf::RenderWindow &window);
 
 private:
-	double radius;
+	double radius; //meters
 	double mass; //kg
 	double velocity; //regular velocity
 	double angularVelocity; //vector is always pointing up (toward user) (in radians / second)

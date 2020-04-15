@@ -3,6 +3,7 @@
 #include "classes/Satellite.h"
 
 int main() {
+	Satellite object(500, 2, 20);
 	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Angular Momentum Visualizer");
 	while (window.isOpen()) {
 		sf::Event event;
@@ -13,7 +14,7 @@ int main() {
 		}
 
 		window.clear();
-
+		object.draw(window);
 		window.display();
 	}
 	return 0;
