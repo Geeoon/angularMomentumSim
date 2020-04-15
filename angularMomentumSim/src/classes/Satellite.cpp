@@ -8,7 +8,8 @@ Satellite::Satellite(double ma, double aV, double r) {
 	currentAngle = 90;
 	cOfRotation.set(0, 0);
 	currentPosition = cOfRotation;
-	
+	inertia = mass * (radius*radius) / 2; //kg * m^2
+	momentum = inertia * angularVelocity;
 }
 
 Satellite::~Satellite() {
@@ -47,10 +48,6 @@ void Satellite::setVelocity(double v) {
 	velocity = v;
 }
 
-void Satellite::setMomentum(double m) {
-	momentum = m;
-}
-
 void Satellite::setAngularVelocity(double v) {
 	angularVelocity = v;
 }
@@ -63,7 +60,9 @@ void Satellite::draw(sf::RenderWindow &window) {
 void Satellite::update() {
 	elapsedTime = clock.getElapsedTime();
 	clock.restart();
-	currentAngle += angularVelocity * elapsedTime.asSeconds();
+	inertia = mass * (radius*radius) / 2; //kg * m^2
+	angularVelocity = momentum / inertia;
+	currentAngle += angularVelocity * elapsedTime.asSeconds(); //added because of the right hand rule
 	
 
 	if (abs(currentAngle / 360) > 1) {
@@ -76,4 +75,8 @@ void Satellite::update() {
 
 double Satellite::toRad(double deg) {
 	return (deg * M_PI / 180);
+}
+
+double Satellite::toDeg(double rad) {
+	return (rad * 180 / M_PI);
 }

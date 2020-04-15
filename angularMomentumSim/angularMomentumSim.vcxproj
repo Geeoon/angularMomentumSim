@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\classes\SatelliteManager.cpp" />
     <ClCompile Include="src\classes\Point.cpp" />
     <ClCompile Include="src\classes\Satellite.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="src\classes\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\classes\SatelliteManager.h" />
     <ClInclude Include="src\classes\Point.h" />
     <ClInclude Include="src\classes\Satellite.h" />
     <ClInclude Include="src\classes\UIManager.h" />

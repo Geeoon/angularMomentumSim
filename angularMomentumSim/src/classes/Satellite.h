@@ -28,8 +28,6 @@ public:
 
 	void setVelocity(double v);
 
-	void setMomentum(double m);
-
 	void setAngularVelocity(double v);
 
 	void draw(sf::RenderWindow &window);
@@ -38,10 +36,11 @@ public:
 
 private:
 	double toRad(double deg);
+	double toDeg(double rad);
 	double radius; //meters
 	double mass; //kg
 	double velocity; //regular velocity
-	double angularVelocity; //vector is always pointing up (toward user) (in degrees / second)
+	double angularVelocity; //vector is always pointing down (away from user) (in degrees / second)
 	double momentum;
 	double inertia;
 	double currentAngle;
