@@ -9,14 +9,14 @@ void Vector::setDirection(double d) {
 	direction = d;
 }
 
-void Vector::setMagnitude() {
+void Vector::setMagnitude(double m) {
 	magnitude = m;
 }
 
-void Vector::getDirection() {
+double Vector::getDirection() {
 	return direction;
 }
 
-void Vector::getMagnitude() {
+double Vector::getMagnitude() {
 	return magnitude;
 }

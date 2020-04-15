@@ -11,8 +11,6 @@ public:
 	double getDirection();
 
 	double getMagnitude();
-}
-
 
 private:
 	double direction;

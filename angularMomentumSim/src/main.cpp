@@ -3,7 +3,7 @@
 #include "classes/Satellite.h"
 
 int main() {
-	Satellite object(500, 2, 20);
+	Satellite object(500, 100, 20);
 	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Angular Momentum Visualizer");
 
 	while (window.isOpen()) {
@@ -23,7 +23,7 @@ int main() {
 
 		//For testing, delete later
 
-
+		object.update();
 
 		//For testing, delete later
 
