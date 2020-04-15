@@ -8,6 +8,7 @@ Satellite::Satellite(double ma, double aV, double r) {
 	currentAngle = 90;
 	cOfRotation.set(0, 0);
 	currentPosition = cOfRotation;
+	
 }
 
 Satellite::~Satellite() {
@@ -62,16 +63,17 @@ void Satellite::draw(sf::RenderWindow &window) {
 void Satellite::update() {
 	elapsedTime = clock.getElapsedTime();
 	clock.restart();
-	currentAngle += angularVelocity * elapsedTime.asMilliseconds();
-	/*
-	if (currentAngle >= 360) {
+	currentAngle += angularVelocity * elapsedTime.asSeconds();
+	
+
+	if (abs(currentAngle / 360) > 1) {
 		currentAngle = std::fmod(currentAngle, 360);
 	}
-
-	if (currentAngle < 0) {
-		currentAngle = std::fmod(currentAngle, -360);
-	}
-	*/
-	currentPosition.set(radius * sin(currentAngle) + cOfRotation.getX(), radius * cos(currentAngle) + cOfRotation.getY());
+	std::cout << currentAngle << std::endl;
+	currentPosition.set(radius * sin(toRad(currentAngle)) + cOfRotation.getX(), radius * cos(toRad(currentAngle)) + cOfRotation.getY());
 	circle.setPosition((float) currentPosition.getX(), (float) currentPosition.getY());
+}
+
+double Satellite::toRad(double deg) {
+	return (deg * M_PI / 180);
 }

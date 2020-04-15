@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "Point.h"
 #include <cmath>
+#include <iostream>
+# define M_PI           3.14159265358979323846  /* pi */
 
 class Satellite
 {
@@ -35,6 +37,7 @@ public:
 	void update();
 
 private:
+	double toRad(double deg);
 	double radius; //meters
 	double mass; //kg
 	double velocity; //regular velocity
