@@ -4,8 +4,7 @@ Satellite::Satellite(double ma, double aV, double r) {
 	mass = ma;
 	angularVelocity = aV;
 	radius = r;
-	circle.setRadius(sqrt(mass));
-	
+	circle.setRadius((float)sqrt(mass));
 }
 
 Satellite::~Satellite() {
@@ -53,5 +52,6 @@ void Satellite::setAngularVelocity(double v) {
 }
 
 void Satellite::draw(sf::RenderWindow &window) {
+	cOfRotation.set(window.getSize().x / 2, window.getSize().y / 2);
 	window.draw(circle);
 }

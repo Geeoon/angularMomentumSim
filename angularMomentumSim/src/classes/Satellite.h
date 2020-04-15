@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Point.h"
 
 class Satellite
 {
@@ -38,5 +39,6 @@ private:
 	double momentum;
 	double inertia;
 	sf::CircleShape circle;
+	Point cOfRotation;
 };
 
