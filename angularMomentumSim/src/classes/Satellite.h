@@ -9,31 +9,19 @@ class Satellite
 {
 public:
 	Satellite(double ma, double aV, double r);
-
 	~Satellite();
-
 	double getRadius();
-
 	double getMass();
-
 	double getVelocity();
-
 	double getMomentum();
-
 	double getAngularVelocity();
-
 	double getInertia();
-
 	void setRadius(double r);
-
 	void setVelocity(double v);
-
 	void setAngularVelocity(double v);
-
 	void draw(sf::RenderWindow &window);
-
 	void update();
-
+	double getAngle();
 private:
 	double toRad(double deg);
 	double toDeg(double rad);

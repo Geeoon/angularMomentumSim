@@ -10,6 +10,7 @@ Satellite::Satellite(double ma, double aV, double r) {
 	currentPosition = cOfRotation;
 	inertia = mass * (radius*radius) / 2; //kg * m^2
 	momentum = inertia * angularVelocity;
+	circle.setOrigin(circle.getLocalBounds().height / 2, circle.getLocalBounds().width / 2);
 }
 
 Satellite::~Satellite() {
@@ -68,7 +69,7 @@ void Satellite::update() {
 	if (abs(currentAngle / 360) > 1) {
 		currentAngle = std::fmod(currentAngle, 360);
 	}
-	std::cout << currentAngle << std::endl;
+
 	currentPosition.set(radius * sin(toRad(currentAngle)) + cOfRotation.getX(), radius * cos(toRad(currentAngle)) + cOfRotation.getY());
 	circle.setPosition((float) currentPosition.getX(), (float) currentPosition.getY());
 }
@@ -79,4 +80,8 @@ double Satellite::toRad(double deg) {
 
 double Satellite::toDeg(double rad) {
 	return (rad * 180 / M_PI);
+}
+
+double Satellite::getAngle() {
+	return currentAngle;
 }

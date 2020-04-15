@@ -1,10 +1,13 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "classes/Satellite.h"
+#include "classes/SatelliteManager.h"
 
 int main() {
-	Satellite object(500, 10, 200); //delete later
+	SatelliteManager satteliteMan;
+	satteliteMan.addSatellite(500, 200, 100);
+
 	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Angular Momentum Visualizer");
+	window.setFramerateLimit(100);
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -19,17 +22,10 @@ int main() {
 			}
 		}
 
-
-
-		//For testing, delete later
-
-		object.update();
-
-		//For testing, delete later
-
+		satteliteMan.update();
 
 		window.clear();
-		object.draw(window);
+		satteliteMan.draw(window);
 		window.display();
 	}
 	return 0;
