@@ -1,2 +1,2 @@
-# angularMomentumSim
+# angularMomentumVisualization
 Visualization of angular momentum.
