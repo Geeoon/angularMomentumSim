@@ -1,3 +1,4 @@
+//Made by Geeoon Chung
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "classes/SatelliteManager.h"

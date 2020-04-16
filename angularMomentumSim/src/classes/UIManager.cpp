@@ -7,7 +7,7 @@ UIManager::UIManager() {
 		//unable to load font
 	}
 	title.setFont(font);
-	title.setString("Visualization of Angular Momentum by Geeoon Chung");
+	title.setString("Visualization of Angular Momentum");
 	title.setCharacterSize(24);
 	title.setFillColor(sf::Color(0, 255, 65));
 	title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
