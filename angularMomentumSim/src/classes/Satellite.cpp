@@ -64,7 +64,7 @@ void Satellite::update() {
 	inertia = mass * (radius*radius) / 2; //kg * m^2
 	angularVelocity = momentum / inertia;
 	currentAngle += angularVelocity * elapsedTime.asSeconds(); //added because of the right hand rule
-	
+
 
 	if (abs(currentAngle / 360) > 1) {
 		currentAngle = std::fmod(currentAngle, 360);
@@ -78,7 +78,11 @@ void Satellite::update() {
 	resultant.setDirection(toDeg(atanf(centripetal.getMagnitude() / instantVel.getMagnitude())));
 	resultant.setMagnitude(sqrt((instantVel.getMagnitude() * instantVel.getMagnitude()) + (centripetal.getMagnitude() * centripetal.getMagnitude())));
 	//currentPosition.set(resultant.getMagnitude() * sin(toRad(resultant.getDirection())) + cOfRotation.getX(), resultant.getMagnitude() * cos(toRad(resultant.getDirection())) + cOfRotation.getX());
-	currentPosition.set(radius * sin(toRad(currentAngle)) + cOfRotation.getX(), radius * cos(toRad(currentAngle)) + cOfRotation.getY());
+	if (isTethered) {
+		currentPosition.set(radius * sin(toRad(currentAngle)) + cOfRotation.getX(), radius * cos(toRad(currentAngle)) + cOfRotation.getY());
+	} else {
+		currentPosition.set(currentPosition.getX() + instantVel.deltaX(), currentPosition.getY() + instantVel.deltaY());
+	}
 	circle.setPosition((float) currentPosition.getX(), (float) currentPosition.getY());
 }
 

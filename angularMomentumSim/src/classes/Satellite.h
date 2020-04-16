@@ -34,6 +34,7 @@ private:
 	double momentum;
 	double inertia;
 	double currentAngle;
+	bool isTethered;
 	sf::CircleShape circle;
 	Point cOfRotation;
 	Point currentPosition;
