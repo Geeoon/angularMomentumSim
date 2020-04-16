@@ -12,6 +12,7 @@ class Satellite
 public:
 	Satellite(double ma, double aV, double r);
 	~Satellite();
+	void create(double ma, double aV, double r);
 	double getRadius();
 	double getMass();
 	double getVelocity();
@@ -22,7 +23,7 @@ public:
 	void setVelocity(double v);
 	void setAngularVelocity(double v);
 	void draw(sf::RenderWindow &window);
-	void update();
+	void update(sf::RenderWindow &window);
 	double getAngle();
 private:
 	double toRad(double deg);

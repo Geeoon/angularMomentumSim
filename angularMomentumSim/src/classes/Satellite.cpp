@@ -1,6 +1,14 @@
 #include "Satellite.h"
 
 Satellite::Satellite(double ma, double aV, double r) {
+	create(ma, aV, r);
+}
+
+Satellite::~Satellite() {
+
+}
+
+void Satellite::create(double ma, double aV, double r) {
 	mass = ma;
 	angularVelocity = aV;
 	radius = r;
@@ -14,10 +22,6 @@ Satellite::Satellite(double ma, double aV, double r) {
 	inertia = mass * (radius*radius) / 2; //kg * m^2
 	momentum = inertia * angularVelocity;
 	circle.setOrigin(circle.getLocalBounds().height / 2, circle.getLocalBounds().width / 2);
-}
-
-Satellite::~Satellite() {
-
 }
 
 double Satellite::getRadius() {
@@ -57,11 +61,10 @@ void Satellite::setAngularVelocity(double v) {
 }
 
 void Satellite::draw(sf::RenderWindow &window) {
-	cOfRotation.set(window.getSize().x / 2, window.getSize().y / 2);
 	window.draw(circle);
 }
 
-void Satellite::update() {
+void Satellite::update(sf::RenderWindow &window) {
 	elapsedTime = clock.getElapsedTime();
 	clock.restart();
 	inertia = mass * (radius*radius) / 2; //kg * m^2
@@ -77,7 +80,7 @@ void Satellite::update() {
 	instantVel.setMagnitude(angularVelocity * radius);
 	centripetal.setDirection(currentAngle + 180);
 	centripetal.setMagnitude(mass * instantVel.getMagnitude() * instantVel.getMagnitude() / radius);
-
+	cOfRotation.set(window.getSize().x / 2, window.getSize().y / 2);
 	resultant.setDirection(toDeg(atanf(centripetal.getMagnitude() / instantVel.getMagnitude())));
 	resultant.setMagnitude(sqrt((instantVel.getMagnitude() * instantVel.getMagnitude()) + (centripetal.getMagnitude() * centripetal.getMagnitude())));
 	//currentPosition.set(resultant.getMagnitude() * sin(toRad(resultant.getDirection())) + cOfRotation.getX(), resultant.getMagnitude() * cos(toRad(resultant.getDirection())) + cOfRotation.getX());

@@ -15,9 +15,9 @@ void SatelliteManager::addSatellite(double ma, double aV, double r) {
 	tether.back().setFillColor(sf::Color(0, 255, 65));
 }
 
-void SatelliteManager::update() {
+void SatelliteManager::update(sf::RenderWindow &window) {
 	for (size_t i = 0; i < satellites.size(); i++) {
-		satellites[i].update();
+		satellites[i].update(window);
 		tether[i].setRotation(satellites[i].getAngle() - 90);
 	}
 }

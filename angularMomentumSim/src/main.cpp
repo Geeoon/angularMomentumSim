@@ -10,7 +10,7 @@ int main() {
 	while (ui.isUIOpen()) {
 		//update stuff
 		ui.update(satelliteMan);
-		satelliteMan.update();
+		satelliteMan.update(ui.getWindow());
 
 		//drawing stuff
 		ui.getWindow().clear();
