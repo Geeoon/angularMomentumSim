@@ -7,10 +7,6 @@ int main() {
 	SatelliteManager satelliteMan;
 	satelliteMan.addSatellite(500, 200, 100);
 	UIManager ui;
-	sf::Font font;
-	if (!font.loadFromFile("src/fonts/SourceCodePro.ttf")) {
-
-	}
 
 	while (ui.isUIOpen()) {
 		//update stuff

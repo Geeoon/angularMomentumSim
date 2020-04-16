@@ -3,12 +3,14 @@
 UIManager::UIManager() {
 	window.create(sf::VideoMode(800, 600, 32), "Angular Momentum Visualizer");
 	window.setFramerateLimit(100);
-	/*
+	if (!font.loadFromFile("src/fonts/SourceCodePro.ttf")) {
+		//unable to load font
+	}
 	title.setFont(font);
 	title.setString("Visualization of Angular Momentum by Geeoon Chung");
 	title.setCharacterSize(24);
 	title.setFillColor(sf::Color(0, 255, 65));
-	*/
+	title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
 }
 
 void UIManager::update() {
@@ -23,10 +25,11 @@ void UIManager::update() {
 			window.close();
 		}
 	}
+	title.setPosition(window.getSize().x / 2, 20);
 }
 
 void UIManager::draw() {
-
+	window.draw(title);
 }
 
 sf::RenderWindow& UIManager::getWindow() {
