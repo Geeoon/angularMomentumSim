@@ -4,15 +4,13 @@
 #include "classes/UIManager.h"
 
 int main() {
-	sf::Font font;
-	if (!font.loadFromFile("fonts/SourceCodePro.ttf")) {
-		std::cout << "Unable to load fonts!";
-	}
-	SatelliteManager satteliteMan;
-	satteliteMan.addSatellite(500, 200, 100);
-	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Angular Momentum Visualizer");
-	window.setFramerateLimit(100);
-
+	SatelliteManager satelliteMan;
+	satelliteMan.addSatellite(500, 200, 100);
+	UIManager ui;
+	
+	//sf::RenderWindow window(sf::VideoMode(800, 600, 32), "Angular Momentum Visualizer");
+	//window.setFramerateLimit(100);
+	/*
 	while (window.isOpen()) {
 		sf::Event event;
 		while (window.pollEvent(event)) {
@@ -26,11 +24,22 @@ int main() {
 			}
 		}
 
-		satteliteMan.update();
+		satelliteMan.update();
 
 		window.clear();
-		satteliteMan.draw(window);
+		satelliteMan.draw(window);
 		window.display();
 	}
+	*/
+
+	while (ui.isUIOpen()) {
+		ui.update();
+		satelliteMan.update();
+		ui.getWindow().clear();
+		ui.draw();
+		satelliteMan.draw(ui.getWindow());
+		ui.getWindow().display();
+	}
+
 	return 0;
 }

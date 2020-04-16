@@ -4,8 +4,13 @@
 class UIManager
 {
 public:
-	UIManager(sf::Font font1);
+	UIManager();
+	void update();
+	void draw();
+	sf::RenderWindow& getWindow();
+	bool isUIOpen();
 private:
+	sf::RenderWindow window;
 	sf::Font font;
 	sf::Text title;
 };
