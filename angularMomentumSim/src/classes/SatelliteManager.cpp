@@ -16,9 +16,12 @@ void SatelliteManager::addSatellite(double ma, double aV, double r) {
 }
 
 void SatelliteManager::update(sf::RenderWindow &window) {
+	elapsedTime = clock.getElapsedTime();
+	clock.restart();
 	for (size_t i = 0; i < satellites.size(); i++) {
 		satellites[i].update(window);
 		tether[i].setRotation(satellites[i].getAngle() - 90);
+		tether[i].setSize(sf::Vector2f(1, satellites[i].getRadius()));
 	}
 }
 
@@ -39,4 +42,33 @@ void SatelliteManager::draw(sf::RenderWindow &window) {
 void SatelliteManager::drawCenter(sf::RenderWindow &window) {
 	center.setPosition(window.getSize().x / 2, window.getSize().y / 2);
 	window.draw(center);
+}
+
+void SatelliteManager::highlight(bool h, int index) {
+	satellites[index].highlight(h);
+	if (h == true) {
+		tether[index].setFillColor(sf::Color::White);
+	} else {
+		tether[index].setFillColor(sf::Color(0, 255, 65));
+	}
+}
+
+void SatelliteManager::input(int index) {
+	if (satellites.size() > 0) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			satellites[index].setRadius(satellites[index].getRadius() + 50 * elapsedTime.asSeconds());
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+			satellites[index].setRadius(satellites[index].getRadius() - 50 * elapsedTime.asSeconds());
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+			satellites[index].setAngularVelocity(satellites[index].getAngularVelocity() + 50 * elapsedTime.asSeconds());
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+			satellites[index].setAngularVelocity(satellites[index].getAngularVelocity() - 50000000 * elapsedTime.asSeconds());
+		}
+	}
 }

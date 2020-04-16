@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <vector>
 #include "Button.h"
 #include "SatelliteManager.h"
 class UIManager
@@ -14,6 +15,9 @@ private:
 	sf::RenderWindow window;
 	sf::Font font;
 	sf::Text title;
+	sf::Text controls;
 	Button newSatellite;
+	std::vector<Button> select;
+	int selectedSat = 0;
 };
 

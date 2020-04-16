@@ -58,3 +58,11 @@ bool Button::isClicked(sf::RenderWindow &window) {
 	}
 	return false;
 }
+
+void Button::highlight(bool h) {
+	if (h == true) {
+		text.setFillColor(sf::Color::White);
+	} else {
+		text.setFillColor(sf::Color(0, 255, 65));
+	}
+}

@@ -11,9 +11,13 @@ public:
 	void changeRadius(int index, double radius);
 	void draw(sf::RenderWindow &window);
 	void drawCenter(sf::RenderWindow &window);
+	void highlight(bool h, int index);
+	void input(int index);
 private:
 	std::vector<Satellite> satellites;
 	std::vector<sf::RectangleShape> tether;
 	sf::CircleShape center;
+	sf::Time elapsedTime;
+	sf::Clock clock;
 };
 

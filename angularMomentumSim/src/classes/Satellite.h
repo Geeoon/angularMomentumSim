@@ -24,6 +24,7 @@ public:
 	void setAngularVelocity(double v);
 	void draw(sf::RenderWindow &window);
 	void update(sf::RenderWindow &window);
+	void highlight(bool h);
 	double getAngle();
 private:
 	double toRad(double deg);

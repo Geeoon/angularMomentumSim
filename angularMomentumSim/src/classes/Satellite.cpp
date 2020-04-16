@@ -92,6 +92,14 @@ void Satellite::update(sf::RenderWindow &window) {
 	circle.setPosition((float) currentPosition.getX(), (float) currentPosition.getY());
 }
 
+void Satellite::highlight(bool h) {
+	if (h == true) {
+		circle.setOutlineColor(sf::Color::White);
+	} else {
+		circle.setOutlineColor(sf::Color(0, 255, 65));
+	}
+}
+
 double Satellite::toRad(double deg) {
 	return (deg * M_PI / 180);
 }

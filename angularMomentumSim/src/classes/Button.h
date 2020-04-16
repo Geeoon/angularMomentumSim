@@ -12,6 +12,7 @@ public:
 	void draw(sf::RenderWindow &window);
 	void setPosition(double x, double y);
 	bool isClicked(sf::RenderWindow &window);
+	void highlight(bool h);
 private:
 	void resize();
 	bool firstClick = true;
