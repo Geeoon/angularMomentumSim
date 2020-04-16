@@ -11,6 +11,8 @@ UIManager::UIManager() {
 	title.setCharacterSize(24);
 	title.setFillColor(sf::Color(0, 255, 65));
 	title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
+
+	newSatellite.create("New Satellite", 15, font);
 }
 
 void UIManager::update() {
@@ -26,10 +28,12 @@ void UIManager::update() {
 		}
 	}
 	title.setPosition(window.getSize().x / 2, 20);
+	newSatellite.setPosition(window.getSize().x / 2, window.getSize().y / 2);
 }
 
 void UIManager::draw() {
 	window.draw(title);
+	newSatellite.draw(window);
 }
 
 sf::RenderWindow& UIManager::getWindow() {

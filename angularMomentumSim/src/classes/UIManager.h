@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Button.h"
 
 class UIManager
 {
@@ -13,5 +14,6 @@ private:
 	sf::RenderWindow window;
 	sf::Font font;
 	sf::Text title;
+	Button newSatellite;
 };
 
