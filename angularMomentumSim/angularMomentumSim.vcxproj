@@ -145,6 +145,9 @@
     <ClInclude Include="src\classes\UIManager.h" />
     <ClInclude Include="src\classes\Vector.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="src\fonts\SourceCodePro.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
