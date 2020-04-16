@@ -12,10 +12,10 @@ UIManager::UIManager() {
 	title.setFillColor(sf::Color(0, 255, 65));
 	title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
 
-	newSatellite.create("New Satellite", 15, font);
+	newSatellite.create("Add Satellite", 20, font);
 }
 
-void UIManager::update() {
+void UIManager::update(SatelliteManager& satelliteMan) {
 	sf::Event event;
 	while (window.pollEvent(event)) {
 		if (event.type == sf::Event::Resized)
@@ -28,13 +28,15 @@ void UIManager::update() {
 		}
 	}
 	title.setPosition(window.getSize().x / 2, 20);
-	newSatellite.setPosition(window.getSize().x / 2, window.getSize().y / 2);
+	newSatellite.setPosition(100, 60);
+	if (newSatellite.isClicked(window)) {
+		satelliteMan.addSatellite(500, 200, 100);
+	}
+
 }
 
 void UIManager::draw() {
-	if (newSatellite.isClicked(window)) {
-		window.draw(title);
-	}
+	window.draw(title);
 	newSatellite.draw(window);
 }
 

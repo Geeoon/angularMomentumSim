@@ -6,11 +6,10 @@
 
 int main() {
 	SatelliteManager satelliteMan;
-	satelliteMan.addSatellite(500, 200, 100);
 	UIManager ui;
 	while (ui.isUIOpen()) {
 		//update stuff
-		ui.update();
+		ui.update(satelliteMan);
 		satelliteMan.update();
 
 		//drawing stuff

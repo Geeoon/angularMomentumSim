@@ -35,7 +35,7 @@ void Button::draw(sf::RenderWindow &window) {
 
 void Button::resize() {
 	text.setOrigin(text.getLocalBounds().width / 2, text.getLocalBounds().height / 2);
-	button.setSize(sf::Vector2f(text.getLocalBounds().width + 10, text.getLocalBounds().height + 10));
+	button.setSize(sf::Vector2f(text.getLocalBounds().width + 13, text.getLocalBounds().height + 13));
 	button.setOrigin(text.getLocalBounds().width / 2 + 5, text.getLocalBounds().height / 2);
 }
 
@@ -45,10 +45,16 @@ void Button::setPosition(double x, double y) {
 }
 
 bool Button::isClicked(sf::RenderWindow &window) {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		if (button.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
-			return true;
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && button.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+		if (firstClick == true) {
+			firstClick = false;
+			return true;			
+		} else {
+			return false;
 		}
+		
+	} else {
+		firstClick = true;
 	}
 	return false;
 }

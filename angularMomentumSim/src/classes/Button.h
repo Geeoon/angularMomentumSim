@@ -14,6 +14,7 @@ public:
 	bool isClicked(sf::RenderWindow &window);
 private:
 	void resize();
+	bool firstClick = true;
 	sf::RectangleShape button;
 	sf::Text text;
 };

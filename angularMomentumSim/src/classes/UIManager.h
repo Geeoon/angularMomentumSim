@@ -1,12 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Button.h"
-
+#include "SatelliteManager.h"
 class UIManager
 {
 public:
 	UIManager();
-	void update();
+	void update(SatelliteManager& satelliteMan);
 	void draw();
 	sf::RenderWindow& getWindow();
 	bool isUIOpen();
