@@ -32,7 +32,9 @@ void UIManager::update() {
 }
 
 void UIManager::draw() {
-	window.draw(title);
+	if (newSatellite.isClicked(window)) {
+		window.draw(title);
+	}
 	newSatellite.draw(window);
 }
 

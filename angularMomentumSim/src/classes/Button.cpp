@@ -1,5 +1,5 @@
 #include "Button.h"
-
+#include <iostream>
 Button::Button() {
 
 }
@@ -42,4 +42,13 @@ void Button::resize() {
 void Button::setPosition(double x, double y) {
 	button.setPosition(x, y);
 	text.setPosition(x, y);
+}
+
+bool Button::isClicked(sf::RenderWindow &window) {
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		if (button.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			return true;
+		}
+	}
+	return false;
 }

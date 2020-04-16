@@ -11,6 +11,7 @@ public:
 	void setFontSize(int size);
 	void draw(sf::RenderWindow &window);
 	void setPosition(double x, double y);
+	bool isClicked(sf::RenderWindow &window);
 private:
 	void resize();
 	sf::RectangleShape button;
