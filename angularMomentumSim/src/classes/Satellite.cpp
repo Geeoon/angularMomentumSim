@@ -5,6 +5,9 @@ Satellite::Satellite(double ma, double aV, double r) {
 	angularVelocity = aV;
 	radius = r;
 	circle.setRadius((float)sqrt(mass));
+	circle.setFillColor(sf::Color::Black);
+	circle.setOutlineColor(sf::Color(0, 255, 65));
+	circle.setOutlineThickness(3);
 	currentAngle = 90;
 	cOfRotation.set(0, 0);
 	currentPosition = cOfRotation;
