@@ -2,6 +2,7 @@
 class Vector
 {
 public:
+	Vector();
 	Vector(double d, double m);
 	void setDirection(double d);
 	void setMagnitude(double m);

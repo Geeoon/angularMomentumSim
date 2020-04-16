@@ -1,5 +1,9 @@
 #include "Vector.h"
 
+Vector::Vector() {
+
+}
+
 Vector::Vector(double d, double m) {
 	direction = d;
 	magnitude = m;

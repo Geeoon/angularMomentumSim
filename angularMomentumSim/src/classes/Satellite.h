@@ -1,8 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Point.h"
+#include "Vector.h"
 #include <cmath>
 #include <iostream>
+
 # define M_PI           3.14159265358979323846  /* pi */
 
 class Satellite
@@ -35,6 +37,9 @@ private:
 	sf::CircleShape circle;
 	Point cOfRotation;
 	Point currentPosition;
+	Vector instantVel;
+	Vector centripetal;
+	Vector resultant;
 	sf::Time elapsedTime;
 	sf::Clock clock;
 };

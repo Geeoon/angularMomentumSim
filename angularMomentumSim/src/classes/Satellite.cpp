@@ -70,6 +70,14 @@ void Satellite::update() {
 		currentAngle = std::fmod(currentAngle, 360);
 	}
 
+	instantVel.setDirection(currentAngle + 90);
+	instantVel.setMagnitude(angularVelocity * radius);
+	centripetal.setDirection(currentAngle + 180);
+	centripetal.setMagnitude(mass * instantVel.getMagnitude() * instantVel.getMagnitude() / radius);
+
+	resultant.setDirection(toDeg(atanf(centripetal.getMagnitude() / instantVel.getMagnitude())));
+	resultant.setMagnitude(sqrt((instantVel.getMagnitude() * instantVel.getMagnitude()) + (centripetal.getMagnitude() * centripetal.getMagnitude())));
+	//currentPosition.set(resultant.getMagnitude() * sin(toRad(resultant.getDirection())) + cOfRotation.getX(), resultant.getMagnitude() * cos(toRad(resultant.getDirection())) + cOfRotation.getX());
 	currentPosition.set(radius * sin(toRad(currentAngle)) + cOfRotation.getX(), radius * cos(toRad(currentAngle)) + cOfRotation.getY());
 	circle.setPosition((float) currentPosition.getX(), (float) currentPosition.getY());
 }
