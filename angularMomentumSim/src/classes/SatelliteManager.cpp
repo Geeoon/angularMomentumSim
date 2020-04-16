@@ -21,6 +21,11 @@ void SatelliteManager::update() {
 	}
 }
 
+void SatelliteManager::changeRadius(int index, double radius) {
+	tether[index].setSize(sf::Vector2f(1, radius));
+	satellites[index].setRadius(radius);
+}
+
 void SatelliteManager::draw(sf::RenderWindow &window) {
 	for (size_t i = 0; i < satellites.size(); i++) {
 		satellites[i].draw(window);
