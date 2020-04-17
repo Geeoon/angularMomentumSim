@@ -12,7 +12,7 @@ void Satellite::create(double ma, double aV, double r) {
 	mass = ma;
 	angularVelocity = aV;
 	radius = r;
-	circle.setRadius((float)sqrt(mass));
+	circle.setRadius((float)mass/20);
 	circle.setFillColor(sf::Color::Black);
 	circle.setOutlineColor(sf::Color(0, 255, 65));
 	circle.setOutlineThickness(3);
@@ -110,4 +110,10 @@ double Satellite::toDeg(double rad) {
 
 double Satellite::getAngle() {
 	return currentAngle;
+}
+
+void Satellite::setMass(double m) {
+	mass = m;
+	circle.setRadius((float)mass / 20);
+	circle.setOrigin(circle.getLocalBounds().width / 2, circle.getLocalBounds().height / 2);
 }

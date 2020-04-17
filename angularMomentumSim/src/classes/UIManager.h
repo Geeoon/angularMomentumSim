@@ -16,6 +16,7 @@ private:
 	sf::Font font;
 	sf::Text title;
 	sf::Text controls;
+	sf::Text stats;
 	Button newSatellite;
 	std::vector<Button> select;
 	int selectedSat = 0;

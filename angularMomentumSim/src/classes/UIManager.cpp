@@ -1,7 +1,7 @@
 #include "UIManager.h"
 
 UIManager::UIManager() {
-	window.create(sf::VideoMode(800, 600, 32), "Angular Momentum Visualizer");
+	window.create(sf::VideoMode(850, 850, 32), "Angular Momentum Visualizer");
 	window.setFramerateLimit(100);
 	if (!font.loadFromFile("src/fonts/SourceCodePro.ttf")) {
 		//unable to load font
@@ -13,16 +13,25 @@ UIManager::UIManager() {
 	title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
 
 	controls.setFont(font);
-	controls.setString("Press the left/right keys to change the speed\nPress the up/down keys to change the radius");
+	controls.setString("Press the left/right keys to change the mass\nPress the up/down keys to change the radius");
 	controls.setCharacterSize(12);
 	controls.setFillColor(sf::Color(0, 255, 65));
 	controls.setOrigin(0, controls.getLocalBounds().height);
 	controls.setPosition(20, 120);
 
+
+	stats.setFont(font);
+	stats.setString("Radius:  Angular Velocity:  Mass: ");
+	stats.setCharacterSize(15);
+	stats.setFillColor(sf::Color(0, 255, 65));
+	stats.setOrigin(0, stats.getLocalBounds().height + 4);
+	stats.setPosition(0, window.getSize().y);
+
 	newSatellite.create("Add Satellite", 20, font);
 }
 
 void UIManager::update(SatelliteManager& satelliteMan) {
+	stats.setPosition(0, window.getSize().y);
 	satelliteMan.input(selectedSat);
 	sf::Event event;
 	while (window.pollEvent(event)) {
@@ -55,12 +64,18 @@ void UIManager::update(SatelliteManager& satelliteMan) {
 			satelliteMan.highlight(false, i);
 		}
 	}
-	
+
+	if (satelliteMan.size() > 0) {
+		stats.setString("Angular Velocity: " + std::to_string(satelliteMan.getSatellite(selectedSat).getAngularVelocity()) + " degrees/second  Radius: " + std::to_string(satelliteMan.getSatellite(selectedSat).getRadius()) + " meters  Mass: " + std::to_string(satelliteMan.getSatellite(selectedSat).getMass()) + " kg");
+	} else {
+		stats.setString("");
+	}
 }
 
 void UIManager::draw() {
 	window.draw(title);
 	window.draw(controls);
+	window.draw(stats);
 	newSatellite.draw(window);
 	for (int i = 0; i < select.size(); i++) {
 		select[i].draw(window);

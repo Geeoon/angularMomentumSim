@@ -26,6 +26,7 @@ public:
 	void update(sf::RenderWindow &window);
 	void highlight(bool h);
 	double getAngle();
+	void setMass(double m);
 private:
 	double toRad(double deg);
 	double toDeg(double rad);

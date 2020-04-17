@@ -13,6 +13,8 @@ public:
 	void drawCenter(sf::RenderWindow &window);
 	void highlight(bool h, int index);
 	void input(int index);
+	Satellite getSatellite(int index);
+	int size();
 private:
 	std::vector<Satellite> satellites;
 	std::vector<sf::RectangleShape> tether;

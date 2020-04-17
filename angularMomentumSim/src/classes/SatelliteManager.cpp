@@ -64,11 +64,19 @@ void SatelliteManager::input(int index) {
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-			satellites[index].setAngularVelocity(satellites[index].getAngularVelocity() + 50 * elapsedTime.asSeconds());
+			satellites[index].setMass(satellites[index].getMass() - 250 * elapsedTime.asSeconds());
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-			satellites[index].setAngularVelocity(satellites[index].getAngularVelocity() - 50000000 * elapsedTime.asSeconds());
+			satellites[index].setMass(satellites[index].getMass() + 250 * elapsedTime.asSeconds());
 		}
 	}
+}
+
+Satellite SatelliteManager::getSatellite(int index) {
+	return satellites[index];
+}
+
+int SatelliteManager::size() {
+	return satellites.size();
 }
