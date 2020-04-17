@@ -64,6 +64,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="src\fonts\SourceCodePro.ttf" />
+    <Font Include="fonts\SourceCodePro.ttf" />
   </ItemGroup>
 </Project>

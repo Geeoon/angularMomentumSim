@@ -3,7 +3,7 @@
 UIManager::UIManager() {
 	window.create(sf::VideoMode(850, 850, 32), "Angular Momentum Visualizer");
 	window.setFramerateLimit(100);
-	if (!font.loadFromFile("src/fonts/SourceCodePro.ttf")) {
+	if (!font.loadFromFile("fonts/SourceCodePro.ttf")) {
 		//unable to load font
 	}
 	title.setFont(font);
